@@ -161,6 +161,7 @@ public class TobiiController : MonoBehaviour
     public void StartClick()
     {
         gazePointVisualizer.ToggleGazeDot(false);
+        startBtn.SetActive(false);
         TestPageControl(true);
         startTime = Time.time;
         audioSource.Stop();
@@ -213,22 +214,22 @@ public class TobiiController : MonoBehaviour
         if (test1String == "first")
         {
             test1String = "";
-            test1.SetActive(false);
             gazePointVisualizer.StopRecord("stability_2_", true);
-            gazePointVisualizer.ToggleLineActive(false);
             contentUnder.text = "";
             ShowResult(2);
         }
         else if (times == "first")
         {
             test1String = "first";
-            test1.SetActive(false);
             gazePointVisualizer.StopRecord("stability_1_", true);
-            gazePointVisualizer.ToggleLineActive(false);
             gazePointVisualizer.ToggleGazeDot(true);
             ContentControl("休息一下，準備第二次測試。\n\n準備好後，請凝視選項3秒。", "");
             PlayAudio(againAudio);
         }
+        test1.SetActive(false);
+        startBtn.SetActive(true);
+        gazePointVisualizer.ToggleLineActive(false);
+
     }
     private void ContentControl(string _content, string _contentUnder)
     {
@@ -313,22 +314,32 @@ public class TobiiController : MonoBehaviour
             else score = 0;
 
         }
-        else
+        else if (curPage == Page.color)
         {
             if (testDuration <= 180) score = 2;
             else if (testDuration <= 236) score = 1;
             else score = 0;
         }
+        else if (curPage == Page.t2)
+        {
+            if (testDuration <= 30) score = 2;
+            else if (testDuration <= 60) score = 1;
+            else score = 0;
+        }
+        else
+        {
+            score = 2;
+        }
+
         ShowResult(score);
         TestPageControl(false);
     }
     public void Test2End()
     {
-        test2.SetActive(false);
         gazePointVisualizer.StopRecord("pavisic_", true);
         gazePointVisualizer.ToggleLineActive(false);
         contentUnder.text = "";
-        ShowResult(2);
+        EndTest();
     }
     public void Test3End(string times)
     {
@@ -346,6 +357,7 @@ public class TobiiController : MonoBehaviour
             ShowResult(2);
         }
         test3.SetActive(false);
+        startBtn.SetActive(true);
         gazePointVisualizer.ToggleLineActive(false);
 
     }
@@ -360,6 +372,10 @@ public class TobiiController : MonoBehaviour
             blackPointController.Reset();
         if (curPage == Page.color)
             colorPointController.Reset();
+        foreach (GameObject star in stars)
+        {
+            star.SetActive(false);
+        }
 
         trackBoxGuide.gameObject.SetActive(true);
         trackBoxGuide.TrackBoxGuideActive = true;
