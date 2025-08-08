@@ -19,6 +19,7 @@ Assets/StreamingAssets/aa.meta
 *.mdb
 *.opendb
 *.VC.db
+*.unitypackage
 .vscode/
 .idea/
 
