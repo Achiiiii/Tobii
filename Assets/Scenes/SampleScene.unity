@@ -2370,6 +2370,7 @@ MonoBehaviour:
   gazeDot: {fileID: 1465572961}
   canvasTransform: {fileID: 458119989}
   uILineRenderer: {fileID: 500150132}
+  tobiiController: {fileID: 186300427}
   _toggleKey: 111
 --- !u!1 &202748916
 GameObject:
@@ -10745,6 +10746,7 @@ MonoBehaviour:
   farerAudio: {fileID: 8300000, guid: 7d198857b7b7b944ba18e00659eff050, type: 3}
   questionAudio: {fileID: 8300000, guid: 9e4526a3d3d013440bad005aea5c2419, type: 3}
   redPointAudio: {fileID: 8300000, guid: 3338a0d0b93e77141bddcced1207ee25, type: 3}
+  moverScale: 0
   _trackBoxGuideActive: 1
   _toggleKey: 116
   _CanvasTrackBox: {fileID: 1367267072}
