@@ -106,8 +106,8 @@ public class TobiiController : MonoBehaviour
         basicTest.SetActive(false);
         startBtn.SetActive(true);
         ContentControl(
-            "請保持頭部不動，專心看著螢幕中央的紅十字10秒，總共做2次，每次結束會休息。\n\n準備好後，請凝視選項3秒。",
-            "測驗時間：約 20 秒鐘"
+            "Please keep your head still and focus on the red cross in the center of the screen for 10 seconds. This will be done twice, with a break between each.\nWhen you're ready, stare to begin in 3 seconds.",
+            "Test time: ~20 sec"
         );
         curPage = Page.t1;
         PlayAudio(test1Audio);
@@ -117,8 +117,8 @@ public class TobiiController : MonoBehaviour
         basicTest.SetActive(false);
         startBtn.SetActive(true);
         ContentControl(
-            "請先注視畫面中央的原點, 當周圍出現另一個圓點時請快速且準確地將視線移動到原點上。\n\n準備好後，請凝視選項3秒。",
-            "測驗時間：約 30 秒至 5 分鐘"
+            "Please first look at the center dot. When another dot appears around it, quickly and accurately shift your gaze to that dot. \nWhen you're ready, stare to begin in 3 seconds.",
+            "Test time: 30 sec ~ 5 min"
         );
         curPage = Page.t2;
         PlayAudio(test2Audio);
@@ -128,8 +128,8 @@ public class TobiiController : MonoBehaviour
         basicTest.SetActive(false);
         startBtn.SetActive(true);
         ContentControl(
-            "請您將視線跟著畫面中的圓點移動！\n\n準備好後，請凝視選項3秒。",
-            "測驗時間：約 20 秒鐘"
+            "Please follow the moving dot on the screen with your eyes! \nWhen you're ready, stare to begin in 3 seconds.",
+            "Test time: ~20 sec"
         );
         curPage = Page.t3;
         PlayAudio(test3Audio);
@@ -140,8 +140,8 @@ public class TobiiController : MonoBehaviour
         advancedTest.SetActive(false);
         startBtn.SetActive(true);
         ContentControl(
-            "請依照數字順序（1 到 25），將視線依序注視螢幕上隨機分布的圓圈。每注視正確的數字，系統會自動連線。\n\n。準備好後，請凝視開始3秒。",
-            "測驗時間：約 50 秒至 20 分鐘"
+            "Please look at the numbered circles in order from 1 to 25 on the screen. The system will connect them automatically when you look at the correct number. \nWhen you're ready, stare to begin in 3 seconds.",
+            "Test time: 50 sec ~ 20 min"
         );
         curPage = Page.black;
         PlayAudio(blackTestAudio);
@@ -151,8 +151,8 @@ public class TobiiController : MonoBehaviour
         advancedTest.SetActive(false);
         startBtn.SetActive(true);
         ContentControl(
-            "請依照圓圈內的數字順序，從 1 到 25 進行注視，並交替使用紅色與黃色數字（紅1 > 黃2 > 紅3 > 黃4...）。圓圈隨機分布於畫面中，注視正確會自動連線。\n\n。準備好後，請凝視開始3秒。",
-            "測驗時間：約 3 至 8 分鐘。"
+            "Please follow the numbers in order from 1 to 25, alternating between red and yellow numbers (Red 1 → Yellow 2 → Red 3 → Yellow 4…). The circles are randomly placed, and the system will auto-connect when a number is correctly fixated. \nWhen you're ready, stare to begin in 3 seconds.",
+            "Test time: 3 min ~ 8 min"
         );
         curPage = Page.color;
         PlayAudio(colorTestAudio);
@@ -223,7 +223,7 @@ public class TobiiController : MonoBehaviour
             test1String = "first";
             gazePointVisualizer.StopRecord("stability_1_", true);
             gazePointVisualizer.ToggleGazeDot(true);
-            ContentControl("休息一下，準備第二次測試。\n\n準備好後，請凝視選項3秒。", "");
+            ContentControl("Take a short break before the second round. \nWhen you're ready, stare to begin in 3 seconds.", "");
             PlayAudio(againAudio);
         }
         test1.SetActive(false);
@@ -248,13 +248,13 @@ public class TobiiController : MonoBehaviour
         switch (score)
         {
             case 0:
-                content.text = "測驗結束！\n您的測驗結果需要再加油，持續練習會讓您越來越進步。";
+                content.text = "Test complete! \nYour results need some improvement, but continued practice will help you progress steadily.";
                 break;
             case 1:
-                content.text = "測驗結束！\n您已達到不錯的水準！相信您能越來越好！";
+                content.text = "Test complete! \nYou've reached a good level. We believe you’ll keep improving!";
                 break;
             case 2:
-                content.text = "測驗結束！\n您的測驗結果非常優秀！請繼續保持！";
+                content.text = "Test complete! \nYour results are excellent. Keep up the great work!";
                 break;
             default:
                 break;
@@ -288,7 +288,7 @@ public class TobiiController : MonoBehaviour
 
         }
         ContentControl(
-            "請問您今天想進行哪一項眼動測試呢？\n（凝視選項3秒）",
+            "Which eye-tracking test would you like to perform today? \nPlease look at the option for 3 seconds to select.",
             ""
         );
         PlayAudio(questionAudio);
@@ -305,7 +305,7 @@ public class TobiiController : MonoBehaviour
     {
         endTime = Time.time;
         testDuration = endTime - startTime;
-        contentUnder.text = "測驗結果： " + Mathf.Round(testDuration).ToString() + " 秒";
+        contentUnder.text = "Result: " + Mathf.Round(testDuration).ToString() + " seconds";
         int score;
         if (curPage == Page.black)
         {
@@ -347,7 +347,7 @@ public class TobiiController : MonoBehaviour
         {
             gazePointVisualizer.StopRecord("track_1_", true);
             gazePointVisualizer.ToggleGazeDot(true);
-            ContentControl("休息一下，準備第二次測試。\n\n準備好後，請凝視選項3秒。", "");
+            ContentControl("Take a short break before the second round. \nWhen you're ready, stare to begin in 3 seconds.", "");
             PlayAudio(againAudio);
         }
         else
@@ -388,7 +388,7 @@ public class TobiiController : MonoBehaviour
         blackTest.SetActive(false);
         colorTest.SetActive(false);
         startBtn.SetActive(false);
-        content.text = "請問您今天想進行哪一項眼動測試呢？\n（凝視選項3秒）";
+        content.text = "Which eye-tracking test would you like to perform today? \nPlease look at the option for 3 seconds to select.";
         contentUnder.text = "";
         trackBoxGuide.Reset();
         audioSource.Stop();
@@ -426,7 +426,7 @@ public class TobiiController : MonoBehaviour
                 startBtn.SetActive(false);
                 basicTest.SetActive(true);
                 ContentControl(
-                    "請問您今天想進行哪一項眼動測試呢？\n（凝視選項3秒）",
+                    "Which eye-tracking test would you like to perform today? \nPlease look at the option for 3 seconds to select.",
                     ""
                 );
                 PlayAudio(questionAudio);
@@ -442,7 +442,7 @@ public class TobiiController : MonoBehaviour
                 startBtn.SetActive(false);
                 basicTest.SetActive(true);
                 ContentControl(
-                    "請問您今天想進行哪一項眼動測試呢？\n（凝視選項3秒）",
+                    "Which eye-tracking test would you like to perform today? \nPlease look at the option for 3 seconds to select.",
                     ""
                 );
                 PlayAudio(questionAudio);
@@ -458,7 +458,7 @@ public class TobiiController : MonoBehaviour
                 startBtn.SetActive(false);
                 basicTest.SetActive(true);
                 ContentControl(
-                    "請問您今天想進行哪一項眼動測試呢？\n（凝視選項3秒）",
+                    "Which eye-tracking test would you like to perform today? \nPlease look at the option for 3 seconds to select.",
                     ""
                 );
                 PlayAudio(questionAudio);
@@ -473,7 +473,7 @@ public class TobiiController : MonoBehaviour
                 startBtn.SetActive(false);
                 advancedTest.SetActive(true);
                 ContentControl(
-                    "請問您今天想進行哪一項眼動測試呢？\n（凝視選項3秒）",
+                    "Which eye-tracking test would you like to perform today? \nPlease look at the option for 3 seconds to select.",
                     ""
                 );
                 PlayAudio(questionAudio);
@@ -486,7 +486,7 @@ public class TobiiController : MonoBehaviour
                 startBtn.SetActive(false);
                 advancedTest.SetActive(true);
                 ContentControl(
-                    "請問您今天想進行哪一項眼動測試呢？\n（凝視選項3秒）",
+                    "Which eye-tracking test would you like to perform today? \nPlease look at the option for 3 seconds to select.",
                     ""
                 );
                 PlayAudio(questionAudio);

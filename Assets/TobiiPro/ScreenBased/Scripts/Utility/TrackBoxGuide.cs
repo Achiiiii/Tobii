@@ -123,7 +123,7 @@ namespace Tobii.Research.Unity
                 _countDownTime -= Time.deltaTime;
                 videoTrial.SetActive(true);
                 videoPlayer.Play();
-                videoTrialText.text = $"眼部校正將在 {Mathf.Max(Mathf.CeilToInt(_countDownTime), 0)} 秒後開始\n稍後請將視線跟隨<color=red>紅色圓點";
+                videoTrialText.text = $"Eye calibration will begin in {Mathf.Max(Mathf.CeilToInt(_countDownTime), 0)} seconds.\nPlease follow the <color=red>red dot";
                 if (_countDownTime < 0)
                 {
                     _countDownLocker = false;
@@ -135,7 +135,7 @@ namespace Tobii.Research.Unity
                             pointer.SetActive(true);
                             blackTestBtn.SetActive(true);
                             colorTestBtn.SetActive(true);
-                            content.text = "請問您今天想進行哪一種眼動測試呢？\n（凝視選項3秒）";
+                            content.text = "Which eye-tracking test would you like to perform today?\nPlease look at the option for 3 seconds to select.";
                             AudioPlay(questionAudio);
                         }
                     );

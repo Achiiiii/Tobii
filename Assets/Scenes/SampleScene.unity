@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 204, y: 20}
-  m_SizeDelta: {x: 789, y: 284}
+  m_AnchoredPosition: {x: 204, y: 37.5448}
+  m_SizeDelta: {x: 789, y: 319.0897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6253651
 MonoBehaviour:
@@ -1089,8 +1089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 634, y: -467.89}
-  m_SizeDelta: {x: 606.958, y: 144.212}
+  m_AnchoredPosition: {x: 634, y: -450.3452}
+  m_SizeDelta: {x: 606.958, y: 179.302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92120587
 MonoBehaviour:
@@ -1112,7 +1112,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u773C\u90E8\u6821\u6B63\u5C07\u5728 5 \u79D2\u5F8C\u958B\u59CB\n\u7A0D\u5F8C\u8ACB\u5C07\u8996\u7DDA\u8DDF\u96A8<color=red>\u7D05\u8272\u5713\u9EDE"
+  m_text: Eye calibration will begin in 5 seconds.\nPlease follow the <color=red>red
+    dot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10afa900cbedb96419a70775ce5e8d28, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: ddc2fb2b6116ebb41adcb65c1eaa8323, type: 2}
@@ -3936,7 +3937,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -92}
-  m_SizeDelta: {x: 270.59253, y: 0}
+  m_SizeDelta: {x: 796.6968, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427607635
 MonoBehaviour:
@@ -3958,7 +3959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u773C\u52D5\u8A8D\u77E5\u6E2C\u8A66"
+  m_text: Eye-tracking Cognition
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10afa900cbedb96419a70775ce5e8d28, type: 2}
   m_sharedMaterial: {fileID: 5832466234806089851, guid: 10afa900cbedb96419a70775ce5e8d28, type: 2}
@@ -20406,7 +20407,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u8ACB\u554F\u60A8\u4ECA\u5929\u60F3\u9032\u884C\u54EA\u4E00\u9805\u773C\u52D5\u6E2C\u8A66\u5462\uFF1F\n\uFF08\u51DD\u8996\u9078\u98053\u79D2\uFF09"
+  m_text: Which eye-tracking test would you like to perform today? Please look at
+    the option for 3 seconds to select.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10afa900cbedb96419a70775ce5e8d28, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: ddc2fb2b6116ebb41adcb65c1eaa8323, type: 2}
