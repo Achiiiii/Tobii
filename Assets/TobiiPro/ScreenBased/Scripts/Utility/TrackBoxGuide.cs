@@ -21,6 +21,8 @@ namespace Tobii.Research.Unity
         public AudioClip farerAudio;
         public AudioClip questionAudio;
         public AudioClip redPointAudio;
+        public float moverScale;
+
 
         [SerializeField]
         [Tooltip("Activate or deactivate the track box guide.")]
@@ -59,7 +61,6 @@ namespace Tobii.Research.Unity
         private EyeTracker _eyeTracker;
         private float _trackabilityLeft;
         private float _trackabilityRight;
-        private float _moverScale;
         private float _leftEyeValidation;
         private float _rightEyeValidation;
         private float _validateTime;
@@ -168,7 +169,7 @@ namespace Tobii.Research.Unity
             var goLeftValid = data.LeftEyeValid;
             var goRightValid = data.RightEyeValid;
 
-            _moverScale = PositionMover(goLeft.z, goRight.z, goLeftValid, goRightValid);
+            moverScale = PositionMover(goLeft.z, goRight.z, goLeftValid, goRightValid);
             PositionEye(goLeft, goLeftValid, _eyeLeft, _eyeScaleLeft);
             PositionEye(goRight, goRightValid, _eyeRight, _eyeScaleRight);
 
@@ -177,16 +178,16 @@ namespace Tobii.Research.Unity
             _rightEyeValidation = SetTrackabilitySlider(ref _trackabilityRight, goRightValid, _sliderRight, delta);
 
             _time += Time.deltaTime;
-            if (_moverScale < 0.35f || _moverScale > 0.65f)
+            if (moverScale < 0.35f || moverScale > 0.65f)
             {
                 if (_time >= 5)
                 {
-                    if (_moverScale < 0.35f)
+                    if (moverScale < 0.35f)
                     {
                         _time = 0;
                         AudioPlay(closerAudio);
                     }
-                    if (_moverScale > 0.65f)
+                    if (moverScale > 0.65f)
                     {
                         _time = 0;
                         AudioPlay(farerAudio);
@@ -195,7 +196,7 @@ namespace Tobii.Research.Unity
             }
             else _time = 0;
 
-            if (_moverScale > 0.2f && _moverScale < 0.8f && _leftEyeValidation >= 0.8 && _rightEyeValidation >= 0.8) _validateTime += Time.deltaTime;
+            if (moverScale > 0.2f && moverScale < 0.8f && _leftEyeValidation >= 0.8 && _rightEyeValidation >= 0.8) _validateTime += Time.deltaTime;
             else _validateTime = 0;
             if (_validateTime >= 2)
             {
