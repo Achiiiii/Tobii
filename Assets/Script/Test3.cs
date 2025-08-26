@@ -17,7 +17,7 @@ public class Test3 : MonoBehaviour
     public class Test3Data
     {
         public float time;
-        public Vector2 position;
+        public Vector3 position;
     }
     [System.Serializable]
     private class Test3DataWrapper
@@ -30,10 +30,11 @@ public class Test3 : MonoBehaviour
     {
         if (_isRecording)
         {
+            Vector3 newPos = new Vector3(point.localPosition.x, point.localPosition.y, tobiiController.trackBoxGuide.moverScale);
             recordedData.Add(new Test3Data
             {
                 time = Time.time,
-                position = point.localPosition
+                position = newPos
             });
         }
     }

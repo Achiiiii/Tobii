@@ -17,7 +17,7 @@ public class Test2 : MonoBehaviour
     public class Test2Data
     {
         public float time;
-        public Vector2 position;
+        public Vector3 position;
         public bool isSuccess;
     }
     [System.Serializable]
@@ -63,10 +63,12 @@ public class Test2 : MonoBehaviour
         if (autoTriggerCoroutine != null)
             StopCoroutine(autoTriggerCoroutine);
 
+        Vector3 newPos = new Vector3(point.anchoredPosition.x, point.anchoredPosition.y, tobiiController.trackBoxGuide.moverScale);
+
         recordedData.Add(new Test2Data
         {
             time = Time.time,
-            position = point.anchoredPosition,
+            position = newPos,
             isSuccess = _isSuccess
         });
 
